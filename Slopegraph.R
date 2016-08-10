@@ -25,14 +25,14 @@ a <- data.frame(year1990,year2013,group)
 ## Right end(2013) will say value
 ## Round the values to get rid of the decimals
 lab1990 <- paste(a$group, round(a$year1990),sep=",")
-lab2013 <- round(a$year2013)
+lab2013 <- paste(round(a$year2013), a$group, sep=",")
 
 ## Draw the initial plot
 
 p <- ggplot(a) + 
   geom_segment(aes(x=0,xend=years,
                    y=year1990,yend=year2013),
-               size=0.75)+
+               size=0.5)+
   ggtitle("Life Expectancy At Birth, 1990-2013")+theme(plot.title = element_text(face="bold",size=20,color="blue"))
 
 ## Set the theme background, grids, ticks, text and borders to blank
